@@ -173,7 +173,7 @@ DESKRIPSI_MAP = {
 }
 
 IMG_SIZE   = (300, 300)
-NAMA_MODEL = 'model_v3_final.h5'
+NAMA_MODEL = 'model_b3_final.h5'
 
 # Inisialisasi history
 if 'history' not in st.session_state:
