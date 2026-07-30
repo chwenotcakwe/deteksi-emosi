@@ -1,6 +1,7 @@
 streamlit==1.32.0
-tensorflow==2.18.0
-keras==3.7.0
+tensorflow-cpu==2.15.0
+keras==2.15.0
 pillow==10.2.0
 numpy==1.26.4
 opencv-python-headless==4.8.0.76
+huggingface_hub
