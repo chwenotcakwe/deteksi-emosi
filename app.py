@@ -9,6 +9,14 @@ import json
 import os
 from datetime import datetime
 from huggingface_hub import hf_hub_download
+import keras as _keras_patch
+
+# PATCH Dense — wajib sebelum load model
+_original_dense = _keras_patch.layers.Dense.__init__
+def _patched_dense(self, *args, **kwargs):
+    kwargs.pop('quantization_config', None)
+    _original_dense(self, *args, **kwargs)
+_keras_patch.layers.Dense.__init__ = _patched_dense
 
 NAMA_MODEL = 'model_b3_clean.h5'
 
@@ -177,7 +185,7 @@ DESKRIPSI_MAP = {
 }
 
 IMG_SIZE   = (300, 300)
-NAMA_MODEL = 'model_b3_final.h5'
+# NAMA_MODEL sudah didefinisikan di atas (model_b3_clean.h5)
 
 # Inisialisasi history
 if 'history' not in st.session_state:
@@ -260,7 +268,7 @@ def prediksi(model, image: Image.Image):
     probs       = model.predict(img_input, verbose=0)[0]
     
     # Boost kelas minoritas
-    BOOST = {'happy': 3.0}
+    BOOST = {'fear': 3.0}
     for emosi_boost, faktor in BOOST.items():
         probs[EMOSI.index(emosi_boost)] *= faktor
     
