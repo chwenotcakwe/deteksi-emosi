@@ -8,6 +8,16 @@ import io
 import json
 import os
 from datetime import datetime
+from huggingface_hub import hf_hub_download
+
+NAMA_MODEL = 'model_b3_final.h5'
+
+if not os.path.exists(NAMA_MODEL):
+    hf_hub_download(
+        repo_id="USERNAME_HF_KAMU/deteksi-emosi-model",
+        filename="model_v3_final.h5",
+        local_dir="."
+    )
 
 HISTORY_FILE   = 'riwayat_prediksi.json'
 HISTORY_IMG_DIR = 'riwayat_gambar'
