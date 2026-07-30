@@ -33,12 +33,6 @@ def save_history(history_list):
     with open(HISTORY_FILE, 'w') as f:
         json.dump(history_list, f, indent=2)
 
-# PATCH Dense
-_original_dense = keras.layers.Dense.__init__
-def _patched_dense(self, *args, **kwargs):
-    kwargs.pop('quantization_config', None)
-    _original_dense(self, *args, **kwargs)
-keras.layers.Dense.__init__ = _patched_dense
 
 # ============================================================
 #  KONFIGURASI HALAMAN
