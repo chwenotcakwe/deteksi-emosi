@@ -14,7 +14,7 @@ NAMA_MODEL = 'model_b3_final.h5'
 
 if not os.path.exists(NAMA_MODEL):
     hf_hub_download(
-        repo_id="USERNAME_HF_KAMU/deteksi-emosi-model",
+        repo_id="bilyus/deteksi-emosi",
         filename="model_v3_final.h5",
         local_dir="."
     )
