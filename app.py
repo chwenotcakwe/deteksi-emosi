@@ -22,7 +22,7 @@ NAMA_MODEL = 'model_b3_clean.h5'
 
 if not os.path.exists(NAMA_MODEL):
     hf_hub_download(
-        repo_id="bilyus/deteksi-emosi",
+        repo_id="bilyus/deteksi-emosi-model",
         filename="model_b3_clean.h5",
         local_dir="."
     )
