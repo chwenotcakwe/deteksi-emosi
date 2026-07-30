@@ -10,12 +10,12 @@ import os
 from datetime import datetime
 from huggingface_hub import hf_hub_download
 
-NAMA_MODEL = 'model_b3_final.h5'
+NAMA_MODEL = 'model_b3_clean.h5'
 
 if not os.path.exists(NAMA_MODEL):
     hf_hub_download(
         repo_id="bilyus/deteksi-emosi",
-        filename="model_b3_final.h5",
+        filename="model_b3_clean.h5",
         local_dir="."
     )
 
